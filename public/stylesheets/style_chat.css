@@ -1,0 +1,222 @@
+::-webkit-scrollbar {
+  width:0%;
+  height:0%;
+}
+
+*{
+  box-sizing: border-box;
+  font-family: monaco,Consolas,Lucida Console,monospace;
+  color: #41FF00;
+}
+
+html,
+body {
+  height: 100%;
+  margin:0px;
+  font-size:100%;
+}
+
+button{
+  background-color: black;
+}
+
+.wrapper {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+  grid-row:1fr;
+  position:relative;
+
+}
+
+.wrapper {
+  border: 0.01em solid #41FF00;
+
+  background-color: black;
+}
+
+.wrapper > div {
+  border: 0.01em solid #41FF00;
+
+  background-color: black;
+}
+
+.nested {
+  border: 0.01em solid #41FF00;
+
+  background-color: black;
+
+}
+
+.chatHeader {
+    grid-column-start: 1;
+    grid-column-end: 13;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.broadcastLabelContainer{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+
+.broadcastMessageContainer{
+  grid-column-start: 2;
+  grid-column-end: 11;
+  grid-row-start: 3;
+  grid-row-end: 4;
+
+
+}
+
+.centered{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+}
+
+.chatMessages {
+  grid-column-start: 1;
+  grid-column-end: 11;
+  grid-row-start: 4;
+  grid-row-end: 15;
+  max-height: 100%;
+  overflow: auto;
+}
+
+.connectedUsersLabelContainer{
+  grid-column-start: 11;
+  grid-column-end: 13;
+  grid-row-start: 3;
+  grid-row-end: 4;
+
+}
+
+.chatUsers {
+  grid-column-start: 11;
+  grid-column-end: 13;
+  grid-row-start: 4;
+  grid-row-end: 15;
+  max-height: 100%;
+  overflow: auto;
+}
+
+.chatChannels {
+  grid-column-start: 1;
+  grid-column-end: 11;
+  grid-row-start: 15;
+  grid-row-end: 16;
+
+  max-width: 100%;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+.channel{
+  display:inline-block;
+  height: 100%;
+
+}
+
+#formSendMessage {
+  grid-column-start: 1;
+  grid-column-end: 11;
+  grid-row-start: 16;
+  grid-row-end: 17;
+
+  display:grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: 1fr;
+
+}
+
+.messageInputContainer{
+  grid-column-start: 1;
+  grid-column-end: 10;
+}
+
+#messageInput{
+  width:100%;
+  height: 100%;
+
+  background-color: black;
+}
+
+.buttonSendMessageContainer{
+  grid-column-start: 10;
+  grid-column-end: 11;
+}
+
+.buttonSendMessage{
+  width:100%;
+  height: 100%;
+}
+
+.currentUserContainer {
+  grid-column-start: 11;
+  grid-column-end: 13;
+  grid-row-start: 15;
+  grid-row-end: 16;
+}
+
+.logoutButtonContainer{
+  grid-column-start:11;
+  grid-column-end: 13;
+  grid-row-start: :16;
+  grid-row-end:17;
+}
+
+#messageInput{
+  width:100%;
+  height: 100%;
+}
+
+/* SLIDING BROADCAST */
+.broadcastMessageContainer {
+ height: 100%;
+ overflow: hidden;
+ position: relative;
+}
+.broadcastMessageContainer .broadcastMessage {
+ font-size: 2vw;
+ color: black;
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ line-height: 100%;
+ text-align: center;
+ /* Starting position */
+ -moz-transform:translateX(100%);
+ -webkit-transform:translateX(100%);
+ transform:translateX(100%);
+ /* Apply animation to this element */
+ -moz-animation: broadcastMessageContainer 15s linear infinite;
+ -webkit-animation: broadcastMessageContainer 15s linear infinite;
+ animation: broadcastMessageContainer 15s linear infinite;
+}
+/* Move it (define the animation) */
+@-moz-keyframes broadcastMessageContainer {
+ 0%   { -moz-transform: translateX(100%); }
+ 100% { -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes broadcastMessageContainer {
+ 0%   { -webkit-transform: translateX(100%); }
+ 100% { -webkit-transform: translateX(-100%); }
+}
+@keyframes broadcastMessageContainer {
+ 0%   {
+ -moz-transform: translateX(100%); /* Firefox bug fix */
+ -webkit-transform: translateX(100%); /* Firefox bug fix */
+ transform: translateX(100%);
+ }
+ 100% {
+ -moz-transform: translateX(-100%); /* Firefox bug fix */
+ -webkit-transform: translateX(-100%); /* Firefox bug fix */
+ transform: translateX(-100%);
+ }
+}

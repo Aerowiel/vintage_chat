@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="\stylesheets\style_chat.css" />
+    <title>Socket.IO chat</title>
+    <style>
+    </style>
+  </head>
+  <body>
+
+    <div class="wrapper">
+      <div class="chatHeader">
+        Header container
+      </div>
+      <div class="broadcastLabelContainer">
+        <div class="broadcastLabel centered">BROADCAST</div>
+      </div>
+      <div class="broadcastMessageContainer">
+        <div class="broadcastMessage">
+          <div class="centered">TEST BROADCAST</div>
+        </div>
+      </div>
+      <div id="chatMessages" class="chatMessages">
+
+      </div>
+      <div class="connectedUsersLabelContainer">
+        <div class="centered" id="connectedUsersLabel">Connected Users</div>
+      </div>
+      <div id="chatUsers" class="chatUsers">
+
+      </div>
+      <div class="chatChannels">
+        <div class="channel nested">
+          <div class="centered">CHANNEL 1</div>
+        </div>
+      </div>
+
+      <form id="formSendMessage" action="">
+
+        <div class="nested messageInputContainer">
+          <input id="messageInput" autocomplete="off"/>
+        </div>
+
+        <div class="nested buttonSendMessageContainer">
+          <button id="buttonSendMessage" class="buttonSendMessage">Send</button>
+        </div>
+
+      </form>
+
+      <div class="currentUserContainer">
+        <div class="centered" id="currentUser">USERNAME</div>
+      </div>
+      <div class="logoutButtonContainer">
+        <button class="buttonSendMessage">LOGOUT</button>
+      </div>
+    </div>
+
+    <audio id="audioplayer" src="" preload="auto"></audio> <!-- /sounds/message.mp3 -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script>
+    <script src="/javascripts/client_chat.js"></script>
+    <script src="/javascripts/chat_functions.js"></script>
+    <script>
+      (function(){
+        $(".chatChannels").bind('mousewheel DOMMouseScroll', function(event){
+        if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
+            // scroll up
+            console.log("scroll up")
+            this.scrollLeft -= 30;
+        }
+        else {
+          console.log("scroll down")
+          this.scrollLeft += 30;
+            // scroll down
+        }
+      })
+    })()
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="\stylesheets\style_login.css" />
+    <title>Socket.IO chat</title>
+    <style>
+    </style>
+  </head>
+  <body>
+
+    <div class="wrapper">
+      <div class="loginFormContainer">
+        <div class="connectionLabelContainer">
+          <div class="connectionLabel centered">MULTIPLAYER CHAT</div>
+        </div>
+        <form  id="loginForm" class="formConnection" method="post" action="/login">
+          <div class="usernameLabelContainer">
+            <div class="usernameLabel centered">USERNAME</div>
+          </div>
+
+          <div class="usernameInputContainer">
+            <input id="username" name ="username" class="usernameInput fill"></input>
+          </div>
+
+          <div class="loginButtonContainer">
+            <button class="loginButton fill">JOIN CHAT</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+
+    <audio id="audioplayer" src="" preload="auto"></audio> <!-- /sounds/message.mp3 -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script>
+    <script src="/javascripts/login.js"></script>
+  </body>
+</html>

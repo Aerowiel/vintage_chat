@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="\stylesheets\style.css" />
+    <title>Socket.IO chat</title>
+    <style>
+    </style>
+  </head>
+  <body id="logged-out">
+
+    <section id="chat">
+
+      <div id="headerNavbar">
+        <div class="defileParent">
+          <span id = "slide_text" class="defile">
+
+          </span>
+        </div>
+        <img id ="logo" class="logo" src="/images/logoChat.png">
+        <button onclick="window.location.href='.'">Logout</button>
+      </div>
+
+      <ul id="messages">
+
+      </ul>
+
+      <div id="channels">
+
+      </div>
+
+      <form action="">
+        <input id="m" autocomplete="off"/><button>Send</button>
+      </form>
+
+      <div id="recapusers">
+          <div class="usersConnected">Connected users</div>
+          <ul id="users" style="list-style-type: none; margin:1%">
+          </ul>
+      </div>
+      <div id="currentUser"><br></div>
+
+    </section>
+
+    <section id="login">
+      <div class="logPack">
+        <video src="http://i.imgur.com/pIvKZxD.mp4" loop autoplay class="logImg"></video>
+        <form action="">
+          <label for="u">Username : </label>
+          <input id="u" autocomplete="off" autofocus />
+          <input id="y" spellcheck="false" autocomplete="off" />
+          <p>
+            <button>Login</button>
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <section id="useractions">
+      <div class="userActionsPack">
+        <label id = "useractions_username" for="username">USERNAME</label>
+        <span>
+          <button id = "useractions_private_message">Private message</button>
+          <button id = "useractions_kick">Kick</button>
+          <button id = "useractions_ban">Ban</button>
+          <button id = "useractions_close">Close</button>
+        </span>
+      </div>
+    </section>
+
+    <audio id="audioplayer" src="" preload="auto"></audio> <!-- /sounds/message.mp3 -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script>
+    <script src="/javascripts/client_chat.js"></script>
+    <script src="/javascripts/chat_functions.js"></script>
+
+  </body>
+</html>

@@ -49,7 +49,7 @@ $("#users").on('click', 'li', function() {
  */
 socket.on('user_connected', function (user) {
   console.log("user connected (socket)")
-  $('#chatMessages').append($('<div>').html(user.username + " joined the room !"));
+  $('#chatMessagesContainer').append($('<div>').html(user.username + " joined the room !"));
 });
 
 /**
@@ -58,9 +58,9 @@ socket.on('user_connected', function (user) {
 
  socket.on('update_userlist', function(users){
 
-   $("#chatUsers").html("")
+   $("#chatUsersContainer").html("")
    for (let user of users){
-     $('#chatUsers').append($('<div id="'+user.id+'">').html('<span class="">'+user.username + '</span> '));
+     $('#chatUsersContainer').append($('<li id="'+user.id+'">').text(	"• "+user.username));
    }
 
  })
@@ -70,7 +70,7 @@ socket.on('user_connected', function (user) {
  */
 
 socket.on('user_disconnected', function (user){
-  $('#chatMessages').append($('<div>').html(user.username + " left the room ... Cya"));
+  $('#chatMessagesContainer').append($('<div>').html(user.username + " left the room ... Cya"));
   $('#'+user.id).remove();
 
 });
@@ -82,10 +82,10 @@ socket.on('chat-message', function (message) {
 
 	switch(message.version){
 		case 2:
-			$('#chatMessages').append($('<div>').html('<span class="">' + message.username + '</span> ' + '<span style="color:#FFF">' +message.text + '</span> '));
+			$('#chatMessagesContainer').append($('<div>').html('<span class="">' + message.username + '</span> ' + '<span style="color:#FFF">' +message.text + '</span> '));
 			break;
 		default:
-			$('#chatMessages').append($('<div>').html(message.text));
+			$('#chatMessagesContainer').append($('<div>').html(message.text));
   		break;
 	}
 	scrollToBottom();

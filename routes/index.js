@@ -7,22 +7,18 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/chat', function(req, res, next) {
-  res.render('chat');
+  res.render('chat2');
 });
 
 router.get('/login', function(req, res, next) {
   res.render('login');
 });
 
-router.get('/chat2', function(req, res, next) {
-  res.render('chat2');
-});
-
 router.post('/login', function(req,res){
   var username = req.body.username;
   console.log("username = " + username);
   req.username = username
-  res.redirect('/chat2');
+  res.redirect('/chat');
 });
 
 module.exports = router;
